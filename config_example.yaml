@@ -1,0 +1,13 @@
+addresses:
+- from: source@mail.com
+  to: destination@mail.com
+
+imap:
+- host: example.com
+  password: my-password
+  username: source@mail.com
+
+smtp:
+- host: example.com
+  password: my-password
+  username: source@mail.com
