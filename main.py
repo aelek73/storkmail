@@ -16,17 +16,19 @@ def ConfigLoader(requested_part):
 
 def sendMail(email_data, from_address, to_address):
     smtp_host = ConfigLoader('smtp')[0]['host']
+    smtp_port = ConfigLoader('smtp')[0]['port']
     smtp_username = ConfigLoader('smtp')[0]['username']
     smtp_password = ConfigLoader('smtp')[0]['password']
-    smtp_connection = smtplib.SMTP_SSL(smtp_host, 465, context=ssl.create_default_context())
+    smtp_connection = smtplib.SMTP_SSL(smtp_host, smtp_port, context=ssl.create_default_context())
     smtp_connection.login(smtp_username, smtp_password)
     smtp_connection.sendmail(from_address, to_address, email_data)
 
 def GetNewMails():
     imap_host = ConfigLoader('imap')[0]['host']
+    imap_port = ConfigLoader('imap')[0]['port']
     imap_username = ConfigLoader('imap')[0]['username']
     imap_password = ConfigLoader('imap')[0]['password']
-    imap_connection = imaplib.IMAP4(imap_host)
+    imap_connection = imaplib.IMAP4(imap_host, imap_port)
     imap_connection.starttls(ssl_context=ssl.create_default_context())
     imap_connection.login(imap_username, imap_password)
     imap_connection.select('INBOX')

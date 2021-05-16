@@ -7,11 +7,11 @@ Currently supported:
 - SMTP over SSL with port 465
 - One IMAP and SMTP connection
 - Mark forwarded mail as `SEEN`
+- Custom ports
 
 ToDo:
 - IMAP SSL
 - SMTP TLS
-- Custom ports
 - Multiple configuration managing
 - Logging
 - Forwarded mails marking
